@@ -1,4 +1,3 @@
-
 BITS = 8
 
 def ConvertDecimalToBinary(decimal, binary):
@@ -13,8 +12,8 @@ def ConvertDecimalToBinary(decimal, binary):
 
 def DisplayAOX(op1,op2,decimalFinal):
     binary = [None for _ in range(BITS)]
-    print(f"In base 10...\n\n {op1} {operand} {op2} = {decimalFinal}")
-    print(f"In {BITS}-bit base 2...\n")
+    print(f"In base 10...\n\n{op1} {operand} {op2} = {decimalFinal}")
+    print(f"\nIn {BITS}-bit base 2...\n")
     ConvertDecimalToBinary(op1, binary)
     for i in binary:
         print(i, end = "")
@@ -43,8 +42,10 @@ if (operand == "&"):
     DisplayAOX(op1,op2,decimalFinal)
 elif (operand == "|"):
     decimalFinal = op1 | op2
+    DisplayAOX(op1,op2,decimalFinal)
 elif (operand == " ^"):
     decimalFinal = op1 ^ op2
+    DisplayAOX(op1,op2,decimalFinal)
 elif (operand == "<<"):
     decimalFinal = op1 << op2
 elif (operand == ">>"):
