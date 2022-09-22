@@ -44,7 +44,7 @@ int main()
     char operand[3];
 
     // display instruction
-    printf("Bitwise Calculator\n\n"
+    printf("\nBitwise Calculator\n\n"
     "Enter two base 10 values with a bitwise operator to see the decimal result\n"
     "and the binary result. The format is\n\n"
     "FirstNumber BitwiseOperator SecondNumber\n\n"
@@ -59,9 +59,8 @@ int main()
     // input validation
     while (op1 < 0 || op1 > 255 || op2 < 0 || op2 > 255)
     {
-        printf("\nPlease note that the spaces between numbers and operator is essential \n"
-        "and the two entered values must be between 0 and 255\n\n");
-        printf("Enter expression ");
+        printf("\nThe entered expression contains out of range values.\n" 
+        "Please reenter the expression using values between 0 and 255.\n\n");
         scanf("%d %s%d", &op1, operand, &op2);
     }
    
@@ -92,7 +91,7 @@ int main()
         ConvertDecimalToBinary(base_10_result, binaryResult);
         printf("\nIn base 10...\n\n%d %s %d = %d\n\n", op1, operand, op2, base_10_result );
 
-        printf("In %d-bit base 2...\n\n", BITS);
+        printf("\nIn %d-bit base 2...\n\n", BITS);
         printf("%s %s %d\n\n", binaryValue1, operand, op2);
         printf("%s", binaryResult);
         base_10_result = -1;
@@ -105,14 +104,14 @@ int main()
         ConvertDecimalToBinary(base_10_result, binaryResult);
         printf("\nIn base 10...\n\n%d %s %d = %d\n\n", op1, operand, op2, base_10_result );
 
-        printf("In %d-bit base 2...\n\n", BITS);
+        printf("\nIn %d-bit base 2...\n\n", BITS);
         printf("%s %s %d\n\n", binaryValue1, operand, op2);
         printf("%s", binaryResult);
         base_10_result = -1;
     } 
     else
     {
-        printf("\nOperator %s is not supported by this calculator\n", operand);
+        printf("\nOperator %s is not supported by this calculator\n\n", operand);
     }
 
     // result printing
@@ -122,7 +121,7 @@ int main()
         ConvertDecimalToBinary(op2, binaryValue2);
         ConvertDecimalToBinary(base_10_result, binaryResult);
         printf("\nIn base 10...\n\n%d %s %d = %d\n\n", op1, operand, op2, base_10_result );
-        printf("In %d-bit base 2...\n\n", BITS);
+        printf("\nIn %d-bit base 2...\n\n", BITS);
         printf("%10s\n", binaryValue1);
         printf("%s\n", operand);
         printf("%10s\n", binaryValue2);
