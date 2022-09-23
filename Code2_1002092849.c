@@ -11,7 +11,7 @@ Coding Asignment 2
 void ConvertDecimalToBinary(int decimal, char binary[BITS + 1])
 {
     // decimal array
-    int decimalArray[BITS];
+    int decimalArray[BITS] = {};
 
     // counter to manipulate array index
     int counter = 1;
@@ -41,7 +41,7 @@ int main()
 {
 
     int op1, op2;
-    char operand[3];
+    char operand[3] = {};
 
     // display instruction
     printf("\nBitwise Calculator\n\n"
@@ -66,9 +66,9 @@ int main()
    
 
     int base_10_result = -1;
-    char binaryValue1[BITS+1];
-    char binaryValue2[BITS+1];
-    char binaryResult[BITS+1];
+    char binaryValue1[BITS+1] = {};
+    char binaryValue2[BITS+1] = {};
+    char binaryResult[BITS+1] = {};
     char separator[] = "========";
 
     if (operand[0] == '&')
