@@ -93,7 +93,7 @@ int main()
 
         printf("\nIn %d-bit base 2...\n\n", BITS);
         printf("%s %s %d\n\n", binaryValue1, operand, op2);
-        printf("%s", binaryResult);
+        printf("%s\n", binaryResult);
         base_10_result = -1;
 
     }
@@ -106,7 +106,7 @@ int main()
 
         printf("\nIn %d-bit base 2...\n\n", BITS);
         printf("%s %s %d\n\n", binaryValue1, operand, op2);
-        printf("%s", binaryResult);
+        printf("%s\n", binaryResult);
         base_10_result = -1;
     } 
     else
