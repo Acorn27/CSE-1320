@@ -6,7 +6,7 @@ Coding Asignment 2
 */
 
 #include <stdio.h>
-#define BITS 16
+#define BITS 8
 
 void ConvertDecimalToBinary(int decimal, char binary[BITS + 1])
 {
