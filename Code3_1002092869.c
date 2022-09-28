@@ -134,15 +134,15 @@ int main()
     {
         current_pick = pick_random_number();
 
-        while (!(is_unique(chosed_number, 75, current_pick)))
+        while (!(is_unique(chosed_number, 75 - drawn_remains, current_pick)))
         {
             current_pick = pick_random_number();
         }
 
         chosed_number[75 - drawn_remains] = current_pick;
         drawn_remains--;
-        printf("Pick number is: %d\n", current_pick);
-        //printf("The next number is %c%d\n", get_precedence(current_pick), current_pick);
+        //printf("Pick number is: %d\n", current_pick);
+        printf("%d. the next number is %c%d\n",75 - drawn_remains, get_precedence(current_pick), current_pick);
 
     }
 
