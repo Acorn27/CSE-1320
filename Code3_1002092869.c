@@ -54,18 +54,61 @@ void fill_bingo_card(int bingo_array[ROW][COLLUMN])
 
 void print_bingo_card(int bingo_array[ROW][COLLUMN])
 {
-    
-    printf("%5c%3c%5c%3c%5c%3c%5c%3c%5c%3c\n", 'B', ' ','I', ' ','N', ' ','G', ' ','O', ' ');
+
+    // print the title
+    printf("    B       I       N       G       O    \n");
     printf("-----------------------------------------\n");
+
+    // print bingo card
     for (int row = 0; row < ROW; row++)
     {
         for (int col = 0; col < COLLUMN; col++)
         {
-            printf("%c%4d%3c",'|', bingo_array[row][col], ' ');
+            if (bingo_array[row][col] == 0) {
+                printf("%c%4c%3c",'|', 'X', ' ');
+            }
+            else 
+            {
+                printf("%c%4d%3c",'|', bingo_array[row][col], ' ');
+            }
         }
         printf("|\n");
         printf("-----------------------------------------\n");
     }
+}
+
+int pick_random_number()
+{
+    return (rand() % 75 + 1);
+}
+
+char get_precedence(int number)
+{
+
+    char precedence;
+
+    if (number <=  15)
+    {
+        precedence = 'B';
+    }
+    else if (number <= 30)
+    {
+        precedence = 'I';
+    } 
+    else if (number <= 45)
+    {
+        precedence = 'N';
+    } 
+    else if (number <= 60)
+    {
+        precedence = 'G';
+    }
+    else if (number <= 75)
+    {
+        precedence = 'O';
+    }
+    return precedence;
+
 }
 
 
@@ -73,13 +116,35 @@ int main()
 {
     srand(time(0));
     
-    //printf("Hello World");
-    
+    // empty bingo card
     int bingo_array[5][5] = {};
     
+    // fill bingo card
     fill_bingo_card(bingo_array);
     
+    // screen bingo card to screen
     print_bingo_card(bingo_array);
+
+    int is_win = 0;
+    int drawn_remains = 75;
+    int chosed_number[75] = {};
+    int current_pick;
+
+    while (!is_win && drawn_remains > 0)
+    {
+        current_pick = pick_random_number();
+
+        while (!(is_unique(chosed_number, 75, current_pick)))
+        {
+            current_pick = pick_random_number();
+        }
+
+        chosed_number[75 - drawn_remains] = current_pick;
+        drawn_remains--;
+        printf("Pick number is: %d\n", current_pick);
+        //printf("The next number is %c%d\n", get_precedence(current_pick), current_pick);
+
+    }
 
     return 0;
 }
