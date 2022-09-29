@@ -111,6 +111,23 @@ char get_precedence(int number)
 
 }
 
+int is_from_bingo(int bingo[ROW][COLLUMN], int test_number) 
+{
+    int from_bingo = 0;
+    for (int row = 0; row < ROW; row++)
+    {
+        for (int col = 0; col < COLLUMN; col++)
+        {
+            if (bingo[row][col] == test_number)
+            {
+                from_bingo = 1;
+            }
+        }
+    }
+    return (from_bingo);
+}
+
+
 
 int main()
 {
@@ -129,6 +146,7 @@ int main()
     int drawn_remains = 75;
     int chosed_number[75] = {};
     int current_pick;
+    char choice;
 
     while (!is_win && drawn_remains > 0)
     {
@@ -142,8 +160,18 @@ int main()
         chosed_number[75 - drawn_remains] = current_pick;
         drawn_remains--;
         //printf("Pick number is: %d\n", current_pick);
-        printf("%d. the next number is %c%d\n",75 - drawn_remains, get_precedence(current_pick), current_pick);
+        //printf("%d. the next number is %c%d\n",75 - drawn_remains, get_precedence(current_pick), current_pick);
+        printf("\nThe next number is %c%d\n\n", get_precedence(current_pick), current_pick);
+        printf("Do you have it ? (Y/N)");
+        getchar();
+        scanf("%c", &choice);
+        if (choice == 'Y')
+        {
+            if (is_from_bingo(bingo_array, 25, current_pick))
+            {
 
+            }
+        }
     }
 
     return 0;
