@@ -211,7 +211,7 @@ int is_unique(int dup_array[], int size, int test_number)
 {
     int is_unique = 1;
     
-    for (int i = 0; i < size; i++)
+    for (int i = 0; i < size && is_unique; i++)
     {
         if (dup_array[i] == test_number)
         {
