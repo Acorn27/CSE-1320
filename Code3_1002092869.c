@@ -4,7 +4,6 @@ UTA ID: 1002092849
 Course: CSE 1320
 Last modified: 09/28/2022
 
-
 */
 
 #include <stdio.h>
@@ -35,150 +34,13 @@ char get_precedence(int);
 int is_from_bingo(int[ROW][COLUMN], int);
 
 // check for complete row
-int is_completed_row(int[ROW][COLUMN]);
-
-int is_completed_row(int bingo[ROW][COLUMN])
-{   
-    // set is_completed to false
-    int is_completed = 0;
-
-    // condition: if row < max_row and one we haven't had any complete row yet
-    for (int row = 0; row < ROW && !(is_completed); row++)
-    {   
-        // assume at the beginning of each row that it is a completed on
-        is_completed = 1;
-        for (int col = 0; col < COLUMN; col++)
-        {   
-            // mark incomplete if one elemnt is not complete
-            if (bingo[row][col] != 0)
-            {   
-                is_completed = 0;
-            }
-        }
-    }
-    return (is_completed);
-}
+int is_complete_row(int[ROW][COLUMN]);
 
 //check for complete collumn
 int is_complete_column(int bingo[ROW][COLUMN]);
-int is_complete_column(int bingo[ROW][COLUMN])
-{
-    // set is_completed to false
-    int is_completed = 0;
 
-    // condition: if col < max_col and one we haven't had any complete collumn yet
-    for (int col = 0; col < COLUMN && !(is_completed); col++)
-    {   
-        // assume at the beginning of each row that it is a completed on
-        is_completed = 1;
-        for (int row = 0; row < ROW; row++)
-        {
-            // mark incomplete if one elemnt is not complete
-            if (bingo[row][col] != 0)
-            {
-                is_completed = 0;
-            }
-        }
-    }
-    return (is_completed);
-}
-int check_diagnose(int[ROW][COLUMN]);
-
-
-int check_win(int bingo[ROW][COLUMN]) {
-    
-    int row_win = 0;
-    int col_win = 0;
-    int diagno_win = 1;
-    int is_win = 0;
-    
-    for (int row = 0; row < ROW && !(row_win); row++)
-    {   
-        row_win = 1;
-        for (int col = 0; col < COLUMN; col++)
-        {
-            if (bingo[row][col] != 0)
-            {
-                row_win = 0;
-            }
-        }
-    }
-    
-    for (int col = 0; col < COLUMN && !(col_win); col++)
-    {   
-        col_win = 1;
-        for (int row = 0; row < ROW; row++)
-        {
-            if (bingo[row][col] != 0)
-            {
-                col_win = 0;
-            }
-        }
-    }
-    
-    for (int i = 0; i < ROW; i++)
-    {   
-        if (bingo[i][i] != 0)
-        {
-            diagno_win = 0;
-        }
-    }
-    
-    if (diagno_win == 0)
-    {
-        
-        diagno_win = 1;
-        for (int i = 0; i < ROW; i++)
-        {      
-            if (bingo[i][ROW -i-1] != 0)
-            {
-                diagno_win = 0;
-            }
-        }
-    }
-
-
-    if (row_win && col_win && diagno_win) 
-    {
-        printf("\nYou filled out a row and a collumn and a diagno -- BINGO!!!\n");
-        is_win = 1;
-        
-    } 
-    else if (col_win && diagno_win) 
-    {
-        printf("\nYou filled out a collumn and a diagno -- BINGO!!!\n");
-        is_win = 1;
-    } 
-    else if (row_win && diagno_win) 
-    {
-        printf("\nYou filled out a row and a diagno -- BINGO!!!\n");
-        is_win = 1;
-    } 
-    else if (row_win && col_win) 
-    {
-        printf("\nYou filled out a row and a collumn -- BINGO!!!\n");
-        is_win = 1;
-    }
-    else if (row_win)
-    {
-        printf("\nYou filled out a row -- BINGO!!!\n");
-        is_win = 1;
-    }
-    else if (col_win)
-    {
-        printf("\nYou filled out a collumn -- BINGO!!!\n");
-        is_win = 1;
-    }
-    else if (diagno_win)
-    {
-        printf("\nYou filled out a diagno -- BINGO!!!\n");
-        is_win = 1;
-    } 
-
-    return (is_win);
-    
-}
-
+// check for compelte diagnose
+int is_complete_diagnal(int bingo[ROW][COLUMN]);
 
 
 int main()
@@ -195,7 +57,7 @@ int main()
     print_bingo_card(bingo_array);
 
     int is_win = 0;
-    int drawn_remains = 75;
+    int number_count = 0;
 
     // keep track of random number that has not been picked
     int chosed_number[75] = {};
@@ -207,28 +69,68 @@ int main()
     char choice;
 
     // game loop
-    while (!is_win && drawn_remains > 0)
+    while (!is_win && number_count < 75)
     {
         // pick unique random number
         current_pick = pick_random_number(chosed_number);
 
         // update dupplicate array
-        chosed_number[75 - drawn_remains] = current_pick;
+        chosed_number[number_count] = current_pick;
 
-        // decrease draw remaining by one
-        drawn_remains--;
-
-        //
+        // prompt for user choice
         printf("Do you have it ? (Y/N) ");
         scanf("%c", &choice);
-        //printf("Choice is %c\n", choice);
+
+        // flush buffer for the next interation
         getchar();
+
+
         if (choice == 'Y')
-        {
+        {   
+            // if number drawn is a number from bingo card
             if (is_from_bingo(bingo_array, current_pick))
-            {
+            {   
+                // reprint bingo card
                 print_bingo_card(bingo_array);
-                is_win = check_win(bingo_array);
+
+                // increase draw count by one
+                number_count++;
+
+                if (is_complete_row(bingo_array) && is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
+                {
+                    printf("\nYou filled out a row and a collumn and a diagnal -- BINGO!!!\n");
+                    is_win = 1;
+                }
+                else if (is_complete_row(bingo_array) && is_complete_column(bingo_array))
+                {
+                    printf("\nYou filled out a row and a column -- BINGO!!!\n");
+                    is_win = 1;
+                }
+                else if (is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
+                {
+                    printf("\nYou filled out a column and a diagnal -- BINGO!!!\n");
+                    is_win = 1;
+                }
+                else if (is_complete_row(bingo_array) && is_complete_diagnal(bingo_array))
+                {
+                    printf("\nYou filled out a row and a diagnal -- BINGO!!!\n");
+                    is_win = 1;
+                }
+                else if (is_complete_row(bingo_array))
+                {
+                    printf("\nYou filled out a row -- BINGO!!!\n");
+                    is_win = 1;
+                }
+                else if (is_complete_column(bingo_array))
+                {
+                    printf("\nYou filled out a column -- BINGO!!!\n");
+                    is_win = 1;
+                }
+                else if (is_complete_diagnal(bingo_array))
+                {
+                    printf("\nYou filled out a diagnal -- BINGO!!!\n");
+                    is_win = 1;
+                }
 
             }
             else 
@@ -284,7 +186,7 @@ void print_bingo_card(int bingo_array[ROW][COLUMN])
 {
 
     // print the title
-    printf("    B       I       N       G       O    \n");
+    printf("\n    B       I       N       G       O    \n");
     printf("-----------------------------------------\n");
 
     // print bingo card
@@ -378,4 +280,80 @@ int is_from_bingo(int bingo[ROW][COLUMN], int test_number)
         }
     }
     return (from_bingo);
+}
+
+int is_complete_row(int bingo[ROW][COLUMN])
+{   
+    // set is_completed to false
+    int is_completed = 0;
+
+    // condition: if row < max_row and one we haven't had any complete row yet
+    for (int row = 0; row < ROW && !(is_completed); row++)
+    {   
+        // assume at the beginning of each row that it is a completed on
+        is_completed = 1;
+        for (int col = 0; col < COLUMN; col++)
+        {   
+            // mark incomplete if one elemnt is not complete
+            if (bingo[row][col] != 0)
+            {   
+                is_completed = 0;
+            }
+        }
+    }
+    return (is_completed);
+}
+
+int is_complete_column(int bingo[ROW][COLUMN])
+{
+    // set is_completed to false
+    int is_completed = 0;
+
+    // condition: if col < max_col and one we haven't had any complete collumn yet
+    for (int col = 0; col < COLUMN && !(is_completed); col++)
+    {   
+        // assume at the beginning of each row that it is a completed on
+        is_completed = 1;
+        for (int row = 0; row < ROW; row++)
+        {
+            // mark incomplete if one elemnt is not complete
+            if (bingo[row][col] != 0)
+            {
+                is_completed = 0;
+            }
+        }
+    }
+    return (is_completed);
+}
+
+int is_complete_diagnal(int bingo[ROW][COLUMN]) 
+{
+    // initialized to true
+    int is_complete = 1;
+
+    // check for main diagnal
+    for (int i = 0; i < ROW; i++)
+    {   
+        if (bingo[i][i] != 0)
+        {
+            is_complete = 0;
+        }
+    }
+
+    // check for anti diagnal if the main diagnal test failed
+    if (is_complete == 0)
+    {
+        // assume anti diagnal exist
+        is_complete = 1;
+
+        // if condiiton is not meet, set is_complete to falase
+        for (int i = 0; i < ROW; i++)
+        {      
+            if (bingo[i][ROW -i-1] != 0)
+            {
+                is_complete = 0;
+            }
+        }
+    }
+return (is_complete);
 }
