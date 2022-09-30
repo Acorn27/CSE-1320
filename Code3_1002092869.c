@@ -90,10 +90,10 @@ int main()
 
         if (choice == 'Y')
         {   
+            print_bingo_card(bingo_array);
             // if number drawn is a number from bingo card
             if (is_from_bingo(bingo_array, current_pick))
             {   
-
                 if (is_complete_row(bingo_array) && is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
                 {
                     printf("\nYou filled out a row and a collumn and a diagnal -- BINGO!!!\n");
