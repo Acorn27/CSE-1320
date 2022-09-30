@@ -137,6 +137,7 @@ int main()
             else 
             {
                 printf("\nThat value is not on your BINGO card - are you trying to cheat??\n");
+                print_bingo_card(bingo_array);
             }
         } 
         else 
