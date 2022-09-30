@@ -65,8 +65,10 @@ int main()
     int current_pick;
 
     // user choice
-    char choice;
+    char choice = 'Y';
 
+    int sum = 0;
+    
     // game loop
     while (!is_win && number_count < 75)
     {
@@ -75,7 +77,12 @@ int main()
 
         // update dupplicate array
         chosed_number[number_count] = current_pick;
+        sum+= current_pick;
 
+        // temp
+        number_count++;
+
+        /*
         // prompt for user choice
         printf("Do you have it ? (Y/N) ");
         scanf("%c", &choice);
@@ -142,7 +149,10 @@ int main()
         {
             print_bingo_card(bingo_array);
         }
+    */
     }
+    
+    printf("Sum is %d", sum);
 
     return 0;
 }
