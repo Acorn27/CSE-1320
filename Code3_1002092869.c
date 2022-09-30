@@ -67,7 +67,6 @@ int main()
     // user choice
     char choice = 'Y';
 
-    int sum = 0;
     
     // game loop
     while (!is_win && number_count < 75)
@@ -77,12 +76,10 @@ int main()
 
         // update dupplicate array
         chosed_number[number_count] = current_pick;
-        sum+= current_pick;
 
-        // temp
+        // increase draw count by one
         number_count++;
 
-        /*
         // prompt for user choice
         printf("Do you have it ? (Y/N) ");
         scanf("%c", &choice);
@@ -96,11 +93,6 @@ int main()
             // if number drawn is a number from bingo card
             if (is_from_bingo(bingo_array, current_pick))
             {   
-                // reprint bingo card
-                print_bingo_card(bingo_array);
-
-                // increase draw count by one
-                number_count++;
 
                 if (is_complete_row(bingo_array) && is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
                 {
@@ -149,10 +141,8 @@ int main()
         {
             print_bingo_card(bingo_array);
         }
-    */
-    }
     
-    printf("Sum is %d", sum);
+    }
 
     return 0;
 }
