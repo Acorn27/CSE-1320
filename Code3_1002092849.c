@@ -67,7 +67,6 @@ int main()
     // user choice
     char choice = 'Y';
 
-    
     // game loop
     while (!is_win && number_count < 75)
     {
@@ -82,10 +81,7 @@ int main()
 
         // prompt for user choice
         printf("Do you have it ? (Y/N) ");
-        scanf("%c", &choice);
-
-        // flush buffer for the next interation
-        getchar();
+        scanf("%s", &choice);
 
 
         if (choice == 'Y')
@@ -271,9 +267,9 @@ char get_precedence(int number)
 int is_from_bingo(int bingo[ROW][COLUMN], int test_number) 
 {
     int from_bingo = 0;
-    for (int row = 0; row < ROW; row++)
+    for (int row = 0; row < ROW && !from_bingo; row++)
     {
-        for (int col = 0; col < COLUMN; col++)
+        for (int col = 0; col < COLUMN && !from_bingo; col++)
         {
             if (bingo[row][col] == test_number)
             {   
@@ -297,7 +293,7 @@ int is_complete_row(int bingo[ROW][COLUMN])
         is_completed = 1;
         for (int col = 0; col < COLUMN; col++)
         {   
-            // mark incomplete if one elemnt is not complete
+            // mark incomplete if one element is not complete
             if (bingo[row][col] != 0)
             {   
                 is_completed = 0;
