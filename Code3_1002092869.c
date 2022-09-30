@@ -90,10 +90,13 @@ int main()
 
         if (choice == 'Y')
         {   
-            print_bingo_card(bingo_array);
+
             // if number drawn is a number from bingo card
             if (is_from_bingo(bingo_array, current_pick))
             {   
+
+                print_bingo_card(bingo_array);
+
                 if (is_complete_row(bingo_array) && is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
                 {
                     printf("\nYou filled out a row and a collumn and a diagnal -- BINGO!!!\n");
@@ -134,7 +137,6 @@ int main()
             else 
             {
                 printf("\nThat value is not on your BINGO card - are you trying to cheat??\n");
-                print_bingo_card(bingo_array);
             }
         } 
         else 
