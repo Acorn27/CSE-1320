@@ -41,6 +41,8 @@ int is_complete_column(int bingo[ROW][COLUMN]);
 // check for compelte diagnose
 int is_complete_diagnal(int bingo[ROW][COLUMN]);
 
+int check_win(int bingo[ROW][COLUMN]);
+
 
 int main()
 {
@@ -90,57 +92,19 @@ int main()
             // if number drawn is a number from bingo card
             if (is_from_bingo(bingo_array, current_pick))
             {   
-
                 print_bingo_card(bingo_array);
-
-                if (is_complete_row(bingo_array) && is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
-                {
-                    printf("\nYou filled out a row and a collumn and a diagnal -- BINGO!!!\n");
-                    is_win = 1;
-                }
-                else if (is_complete_row(bingo_array) && is_complete_column(bingo_array))
-                {
-                    printf("\nYou filled out a row and a column -- BINGO!!!\n");
-                    is_win = 1;
-                }
-                else if (is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
-                {
-                    printf("\nYou filled out a column and a diagnal -- BINGO!!!\n");
-                    is_win = 1;
-                }
-                else if (is_complete_row(bingo_array) && is_complete_diagnal(bingo_array))
-                {
-                    printf("\nYou filled out a row and a diagnal -- BINGO!!!\n");
-                    is_win = 1;
-                }
-                else if (is_complete_row(bingo_array))
-                {
-                    printf("\nYou filled out a row -- BINGO!!!\n");
-                    is_win = 1;
-                }
-                else if (is_complete_column(bingo_array))
-                {
-                    printf("\nYou filled out a column -- BINGO!!!\n");
-                    is_win = 1;
-                }
-                else if (is_complete_diagnal(bingo_array))
-                {
-                    printf("\nYou filled out a diagnal -- BINGO!!!\n");
-                    is_win = 1;
-                }
-
+                is_win = check_win(bingo_array);
             }
             else 
             {
                 printf("\nThat value is not on your BINGO card - are you trying to cheat??\n");
                 print_bingo_card(bingo_array);
             }
-        } 
+        }
         else 
         {
             print_bingo_card(bingo_array);
         }
-    
     }
 
     return 0;
@@ -228,9 +192,9 @@ int pick_random_number(int chosed_number[75])
 
     // if number alreay been pick, pick another number
     while (!(is_unique(chosed_number, 75, ran_number)))
-        {
-            ran_number = rand() % 75 + 1;
-        }
+    {
+        ran_number = rand() % 75 + 1;
+    }
     printf("\nThe next number is %c%d\n\n", get_precedence(ran_number), ran_number);
     return (ran_number);
 }
@@ -354,5 +318,47 @@ int is_complete_diagnal(int bingo[ROW][COLUMN])
             }
         }
     }
-return (is_complete);
+    return (is_complete);
+}
+
+int check_win(int bingo_array[ROW][COLUMN]) 
+{
+    int is_win = 0;
+
+    if (is_complete_row(bingo_array) && is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
+    {
+        printf("\nYou filled out a row and a collumn and a diagnal -- BINGO!!!\n");
+        is_win = 1;
+    }
+    else if (is_complete_row(bingo_array) && is_complete_column(bingo_array))
+    {
+        printf("\nYou filled out a row and a column -- BINGO!!!\n");
+        is_win = 1;
+    }
+    else if (is_complete_column(bingo_array) && is_complete_diagnal(bingo_array))
+    {
+        printf("\nYou filled out a column and a diagnal -- BINGO!!!\n");
+        is_win = 1;
+    }
+    else if (is_complete_row(bingo_array) && is_complete_diagnal(bingo_array))
+    {
+        printf("\nYou filled out a row and a diagnal -- BINGO!!!\n");
+        is_win = 1;
+        }
+    else if (is_complete_row(bingo_array))
+    {
+        printf("\nYou filled out a row -- BINGO!!!\n");
+        is_win = 1;
+    }
+    else if (is_complete_column(bingo_array))
+    {
+        printf("\nYou filled out a column -- BINGO!!!\n");
+        is_win = 1;
+    }
+    else if (is_complete_diagnal(bingo_array))
+    {
+        printf("\nYou filled out a diagnal -- BINGO!!!\n");
+        is_win = 1;
+    }
+    return is_win;
 }
