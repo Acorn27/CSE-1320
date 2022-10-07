@@ -11,7 +11,6 @@ Last modified: 09/30/2022
 #define ROW 5
 #define COLUMN 5
 
-
 // supplement function, use 1D array to keep track of used random number
 // take array, size, and test_number as parameter
 int is_unique(int[], int, int);
@@ -41,6 +40,7 @@ int is_complete_column(int bingo[ROW][COLUMN]);
 // check for compelte diagnose
 int is_complete_diagnal(int bingo[ROW][COLUMN]);
 
+// check for bingo
 int check_win(int bingo[ROW][COLUMN]);
 
 
