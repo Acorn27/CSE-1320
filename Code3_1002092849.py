@@ -65,12 +65,20 @@ def col_win(bingo_array):
     else:
         return False
 
-def diagno_win(bingo_array):
+def main_diagno_win(bingo_array):
 
     is_win = True
     for i in range(5):
         if (bingo_array[i][i] != 0):
             is_win = False
+
+def second_diagno_win(bingo_array):
+    is_win = True
+    for i in range(bingo_array.shape[0]):
+        if bingo_array[i,bingo_array.shape[0] -i] != 0:
+            is_win = False
+
+    return is_win
     
 
 

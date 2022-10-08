@@ -8,6 +8,8 @@ int main()
     int* varAPtr = &varA;
     int** varAPtrPtr = &varAPtr;
 
+    // wrong, this will print the address of varA, not address of varAPtr
+    // note: * go to a deeper level compare to 
     printf("Adress of varAPtr is %p\n", varAPtr);
     printf("Adress of varAPtrPtr  is %p\n", varAPtrPtr);
 
