@@ -55,7 +55,9 @@ int main()
     length = atoi(token);
 
     token = strtok(NULL, delim);
-    strcpy(letter_command, token);
+    strcpy(mark, token);
+
+    
 
 
 
