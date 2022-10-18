@@ -99,7 +99,7 @@ int main()
 }
 
 
-int valid_range(int x, int y, int* length, int max, char type)
+int valid_range(int x, int y, int length, int max, char type)
 {
 
     int general_test = 1,
