@@ -73,7 +73,7 @@ int main()
         strcpy(mark, token);
 
         if (valid_range(x_coordinate, y_coordinate, length, map_size, letter_command[0]))
-        {
+        {   
             DrawLine(draw_board, x_coordinate, y_coordinate, letter_command[0], length, mark[0]);
             PrintMap(draw_board, map_size);
             printf("\nEnter draw command (enter Q to quit) ");
@@ -121,6 +121,10 @@ int valid_range(int x, int y, int length, int max, char type)
             {
                 case_V_test = 0;
             }
+        }
+        else if (type == 'P')
+        {
+            length = 0;
         }
 
     }
