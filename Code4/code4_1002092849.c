@@ -11,9 +11,8 @@ Last modified: 10/18/2020
 #include <stdlib.h>
 #include <ctype.h>
 
-int valid_range(int x, int y, int* length, int max, char type);
+int valid_range(int x, int y, int length, int max, char type);
 
-void commandParse(char userInput[], char letter_command[], int* x_coordinate, int* y_coordinate,int* length, char mark[]);
 
 int main()
 {   
@@ -74,7 +73,15 @@ int main()
 
         if (valid_range(x_coordinate, y_coordinate, &length, map_size, letter_command[0]))
         {   
-            DrawLine(draw_board, x_coordinate, y_coordinate, letter_command[0], length, mark[0]);
+            if (letter_command[0] == 'P')
+            {
+                draw_board[x_coordinate][y_coordinate] = mark[0];
+            }
+            else
+            {
+                DrawLine(draw_board, x_coordinate, y_coordinate, letter_command[0], length, mark[0]);
+            }
+    
             PrintMap(draw_board, map_size);
             printf("\nEnter draw command (enter Q to quit) ");
             fgets(userInput, 19, stdin);
@@ -110,44 +117,20 @@ int valid_range(int x, int y, int* length, int max, char type)
     {
         if (type == 'H')
         {
-            if (y + *length > max)
+            if (y + length > max)
             {
                 case_H_test = 0;
             }
         }
         else if (type == 'V')
         {
-            if (x + *length > max)
+            if (x + length > max)
             {
                 case_V_test = 0;
             }
-        }
-        else if (type == 'P')
-        {
-            *length = 0;
         }
 
     }
     return (general_test && case_H_test && case_V_test);
 }
 
-void commandParse(char userInput[], char letter_command[], int* x_coordinate, int* y_coordinate,int* length, char mark[])
-{
-
-    char delim[] = "(),";
-
-    char* token = strtok(userInput, delim);
-    strcpy(letter_command, token);
-
-    token = strtok(NULL, delim);
-    *x_coordinate = atoi(token);
-
-    token = strtok(NULL, delim);
-    *y_coordinate = atoi(token);
-
-    token = strtok(NULL, delim);
-    *length = atoi(token);
-
-    token = strtok(NULL, delim);
-    strcpy(mark, token);
-}
