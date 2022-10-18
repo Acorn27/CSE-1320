@@ -57,7 +57,10 @@ int main()
     token = strtok(NULL, delim);
     strcpy(mark, token);
 
-    
+    if (strcmp(mark, "\n"))
+    {
+        strcpy(mark,"X");
+    }
 
 
 
