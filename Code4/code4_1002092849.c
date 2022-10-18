@@ -8,6 +8,7 @@ Last modified: 10/18/2020
 #include "DrawTool.h"
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 int main()
 {   
@@ -33,6 +34,28 @@ int main()
     char userInput[20];
     printf("Enter draw command (enter Q to quit) ");
     fgets(userInput, 19, stdin);
+
+    char delim[] = "(),";
+    char letter_command;
+    int x_coordinate, y_coordinate, length;
+    char mark;
+
+    char* token = strtok(userInput, delim);
+    letter_command = *token;
+
+    token = strtok("\0", delim);
+    x_coordinate = *token;
+
+    token = strtok("\0", delim);
+    y_coordinate = *token;
+
+    token = strtok("\0", delim);
+    length = *token;
+
+    token = strtok("\0", delim);
+    mark = *token;
+
+
 
 
 }
