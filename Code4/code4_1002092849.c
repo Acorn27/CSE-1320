@@ -71,7 +71,7 @@ int main()
         token = strtok(NULL, delim);
         strcpy(mark, token);
 
-        if (valid_range(x_coordinate, y_coordinate, &length, map_size, letter_command[0]))
+        if (valid_range(x_coordinate, y_coordinate, length, map_size, letter_command[0]))
         {   
             if (letter_command[0] == 'P')
             {
