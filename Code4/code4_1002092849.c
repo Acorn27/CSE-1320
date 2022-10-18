@@ -81,18 +81,18 @@ int main()
             {
                 DrawLine(draw_board, x_coordinate, y_coordinate, letter_command[0], length, mark[0]);
             }
-    
-            PrintMap(draw_board, map_size);
-            printf("\nEnter draw command (enter Q to quit) ");
-            fgets(userInput, 19, stdin);
-            token = strtok(userInput, delim);
-            strcpy(letter_command, token);
-            letter_command[0] = toupper(letter_command[0]);
 
         } else
         {
             printf("That draw command is out of range\n");
         }
+                                
+        PrintMap(draw_board, map_size);
+        printf("\nEnter draw command (enter Q to quit) ");
+        fgets(userInput, 19, stdin);
+        token = strtok(userInput, delim);
+        strcpy(letter_command, token);
+        letter_command[0] = toupper(letter_command[0]);
 
     }
 
