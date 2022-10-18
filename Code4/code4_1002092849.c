@@ -84,7 +84,7 @@ int main()
 
         } else
         {
-            printf("That draw command is out of range\n");
+            printf("\nThat draw command is out of range\n");
         }
                                 
         PrintMap(draw_board, map_size);
@@ -117,14 +117,14 @@ int valid_range(int x, int y, int length, int max, char type)
     {
         if (type == 'H')
         {
-            if (y + length >= max)
+            if (y + length > max)
             {
                 case_H_test = 0;
             }
         }
         else if (type == 'V')
         {
-            if (x + length >= max)
+            if (x + length > max)
             {
                 case_V_test = 0;
             }
