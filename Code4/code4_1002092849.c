@@ -95,8 +95,9 @@ int main()
         draw_command[0] = toupper(draw_command[0]);
 
     }
+
     printf('\n');
-    return 0;
+    return 1;
 
 }
 
