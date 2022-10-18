@@ -107,7 +107,7 @@ int valid_range(int x, int y, int length, int max, char type)
         case_V_test = 1;
 
     // general test
-    if (x < 0 || x > max || y < 0 || y > max)
+    if (x < 0 || x >= max || y < 0 || y >= max)
     {
         general_test = 0;
     }
@@ -117,14 +117,14 @@ int valid_range(int x, int y, int length, int max, char type)
     {
         if (type == 'H')
         {
-            if (y + length > max)
+            if (y + length >= max)
             {
                 case_H_test = 0;
             }
         }
         else if (type == 'V')
         {
-            if (x + length > max)
+            if (x + length >= max)
             {
                 case_V_test = 0;
             }
