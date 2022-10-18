@@ -37,9 +37,9 @@ int main()
 
     char delim[] = "(),";
     char letter_command[2]= {};
-    int x_coordinate[2] = {},
-        y_coordinate[2] = {},
-        length[2] = {};
+    int x_coordinate,
+        y_coordinate,
+        length;
     char mark[2] = {};
 
     char* token = strtok(userInput, delim);
