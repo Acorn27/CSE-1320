@@ -43,16 +43,16 @@ int main()
     char* token = strtok(userInput, delim);
     letter_command = *token;
 
-    token = strtok("\0", delim);
+    token = strtok(NULL, delim);
     x_coordinate = *token;
 
-    token = strtok("\0", delim);
+    token = strtok(NULL, delim);
     y_coordinate = *token;
 
-    token = strtok("\0", delim);
+    token = strtok(NULL, delim);
     length = *token;
 
-    token = strtok("\0", delim);
+    token = strtok(NULL, delim);
     mark = *token;
 
 
