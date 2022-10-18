@@ -36,24 +36,26 @@ int main()
     fgets(userInput, 19, stdin);
 
     char delim[] = "(),";
-    char letter_command;
-    int x_coordinate, y_coordinate, length;
-    char mark;
+    char letter_command[2]= {};
+    int x_coordinate[2] = {},
+        y_coordinate[2] = {},
+        length[2] = {};
+    char mark[2] = {};
 
     char* token = strtok(userInput, delim);
-    letter_command = *token;
+    strcpy(letter_command, token);
 
     token = strtok(NULL, delim);
-    x_coordinate = *token;
+    strcpy(x_coordinate, atoi(token));
 
     token = strtok(NULL, delim);
-    y_coordinate = *token;
+    strcpy(y_coordinate, atoi(token));
 
     token = strtok(NULL, delim);
-    length = *token;
+    strcpy(length, atoi(token));
 
     token = strtok(NULL, delim);
-    mark = *token;
+    strcpy(letter_command, token);
 
 
 
