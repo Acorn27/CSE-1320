@@ -2,7 +2,7 @@
 Author: Mai Tran
 UTA ID: 1002092849
 CSE 1320 Coding Assignment 4
-Last modified: 10/18/2020
+Last modified: 10/18/2020 4pm
 */
 
 #include "DrawTool.h"
