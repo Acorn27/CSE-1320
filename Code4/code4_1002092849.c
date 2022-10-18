@@ -46,13 +46,13 @@ int main()
     strcpy(letter_command, token);
 
     token = strtok(NULL, delim);
-    strcpy(x_coordinate, atoi(token));
+    x_coordinate = atoi(token);
 
     token = strtok(NULL, delim);
-    strcpy(y_coordinate, atoi(token));
+    y_coordinate = atoi(token);
 
     token = strtok(NULL, delim);
-    strcpy(length, atoi(token));
+    length = atoi(token);
 
     token = strtok(NULL, delim);
     strcpy(letter_command, token);
