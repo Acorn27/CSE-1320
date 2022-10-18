@@ -72,7 +72,7 @@ int main()
         token = strtok(NULL, delim);
         strcpy(mark, token);
 
-        if (valid_range(x_coordinate, y_coordinate, length, map_size, letter_command[0]))
+        if (valid_range(x_coordinate, y_coordinate, &length, map_size, letter_command[0]))
         {   
             DrawLine(draw_board, x_coordinate, y_coordinate, letter_command[0], length, mark[0]);
             PrintMap(draw_board, map_size);
@@ -92,7 +92,7 @@ int main()
 }
 
 
-int valid_range(int x, int y, int length, int max, char type)
+int valid_range(int x, int y, int* length, int max, char type)
 {
 
     int general_test = 1,
@@ -124,7 +124,7 @@ int valid_range(int x, int y, int length, int max, char type)
         }
         else if (type == 'P')
         {
-            length = 0;
+            *length = 0;
         }
 
     }
