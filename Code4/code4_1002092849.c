@@ -33,7 +33,7 @@ int main()
     InitializeMap(draw_board, &map_size);
 
     // discard '\n' left over in buffer
-    getchar();
+    //getchar();
 
     // call PrintInstructions() from DrawTool
     PrintInstructions();
@@ -95,6 +95,8 @@ int main()
         draw_command[0] = toupper(draw_command[0]);
 
     }
+    printf('\n');
+    return 0;
 
 }
 
