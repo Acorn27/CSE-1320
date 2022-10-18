@@ -19,6 +19,13 @@ int main()
     // declare 2D array of max size defined
     char draw_board[MAXMAPSIZE][MAXMAPSIZE] = {};
 
+    // delimiter 
+    char delim[] = "(),";
+    // draw command 'H', 'V', or 'P'
+    char draw_command[2]= {};
+    int x_coordinate, y_coordinate, length;
+    char mark[2] = {};
+
     // user enter map size
     int map_size = 0;
 
@@ -39,25 +46,14 @@ int main()
     printf("\nEnter draw command (enter Q to quit) ");
     fgets(userInput, 19, stdin);
 
-    // delimiter 
-    char delim[] = "(),";
-    // draw command string
-    char letter_command[2]= {};
-    int x_coordinate,
-        y_coordinate,
-        length;
-    //  mark
-    char mark[2] = {};
-
-    //commandParse(userInput, letter_command, &x_coordinate, &y_coordinate, &length, mark);
-
+    // parse command letter
     char* token;
     token = strtok(userInput, delim);
-    strcpy(letter_command, token);
-    letter_command[0] = toupper(letter_command[0]);
+    strcpy(draw_command, token);
+    draw_command[0] = toupper(draw_command[0]);
 
 
-    while (letter_command[0] != 'Q')
+    while (draw_command[0] != 'Q')
     {
         token = strtok(NULL, delim);
         x_coordinate = atoi(token);
@@ -71,15 +67,19 @@ int main()
         token = strtok(NULL, delim);
         strcpy(mark, token);
 
-        if (valid_range(x_coordinate, y_coordinate, length, map_size, letter_command[0]))
-        {   
-            if (letter_command[0] == 'P')
+        if (valid_range(x_coordinate, y_coordinate, length, map_size, draw_command[0]))
+        {  
+            if (draw_command[0] == 'P')
             {
                 draw_board[x_coordinate][y_coordinate] = mark[0];
             }
+            else if (draw_command[0] == 'H' || draw_command[0] == 'V')
+            {
+                DrawLine(draw_board, x_coordinate, y_coordinate, draw_command[0], length, mark[0]);
+            }
             else
             {
-                DrawLine(draw_board, x_coordinate, y_coordinate, letter_command[0], length, mark[0]);
+                printf("\nThat draw command is unknown\n");
             }
 
         } else
@@ -91,8 +91,8 @@ int main()
         printf("\nEnter draw command (enter Q to quit) ");
         fgets(userInput, 19, stdin);
         token = strtok(userInput, delim);
-        strcpy(letter_command, token);
-        letter_command[0] = toupper(letter_command[0]);
+        strcpy(draw_command, token);
+        draw_command[0] = toupper(draw_command[0]);
 
     }
 
