@@ -42,9 +42,9 @@ int main()
     PrintMap(draw_board, map_size);
 
     // prompt for user command
-    char userInput[20];
+    char userInput[21];
     printf("\nEnter draw command (enter Q to quit) ");
-    fgets(userInput, 19, stdin);
+    fgets(userInput, 20, stdin);
 
     // parse command letter
     char* token;
@@ -94,7 +94,7 @@ int main()
                                 
         PrintMap(draw_board, map_size);
         printf("\nEnter draw command (enter Q to quit) ");
-        fgets(userInput, 19, stdin);
+        fgets(userInput, 20, stdin);
         token = strtok(userInput, delim);
         strcpy(draw_command, token);
         draw_command[0] = toupper(draw_command[0]);
