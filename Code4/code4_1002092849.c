@@ -66,6 +66,11 @@ int main()
 
         token = strtok(NULL, delim);
         strcpy(mark, token);
+        
+        if (mark == "\n")
+        {
+            mark = "X";
+        }
 
         if (valid_range(x_coordinate, y_coordinate, length, map_size, draw_command[0]))
         {  
