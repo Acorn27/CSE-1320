@@ -2,7 +2,7 @@
 Author: Mai Tran
 UTA ID: 1002092849
 CSE 1320 Coding Assignment 4
-Last modified: 10/18/2020 5pm
+Last modified: 10/21/2020
 */
 
 #include "DrawTool.h"
@@ -12,7 +12,6 @@ Last modified: 10/18/2020 5pm
 #include <ctype.h>
 
 int valid_range(int x, int y, int length, int max, char type);
-
 
 int main()
 {   
