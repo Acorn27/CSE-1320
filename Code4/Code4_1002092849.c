@@ -85,8 +85,8 @@ int main()
             {
                 printf("\nThat draw command is unknown\n");
             }
-
-        } else
+        } 
+        else
         {
             printf("\nThat draw command is out of range\n");
         }
