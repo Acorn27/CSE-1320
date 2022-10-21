@@ -67,7 +67,7 @@ int main()
         token = strtok(NULL, delim);
         strcpy(mark, token);
 
-        if (strcmp(mark,"\X") == 0)
+        if (strcmp(mark,"\n") == 0)
         {
             strcpy(mark,"X");
         }
@@ -102,7 +102,7 @@ int main()
     }
 
     printf("\n");
-    return 0;
+    return 1;
 
 }
 
