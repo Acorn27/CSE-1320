@@ -20,7 +20,7 @@ int main()
     // draw command 'H', 'V', or 'P'
     char draw_command[2]= {};
     int x_coordinate, y_coordinate, length;
-    char mark[2] = {};
+    char mark[5] = {};
 
     // user enter map size
     int map_size = 0;
