@@ -17,9 +17,7 @@ int main()
 {   
     // declare 2D array of max size defined
     char draw_board[MAXMAPSIZE][MAXMAPSIZE] = {};
-
     // delimiter 
-    char delim[] = "(),";
     // draw command 'H', 'V', or 'P'
     char draw_command[2]= {};
     int x_coordinate, y_coordinate, length;
@@ -54,16 +52,16 @@ int main()
 
     while (draw_command[0] != 'Q')
     {
-        token = strtok(NULL, delim);
+        token = strtok(NULL, "(),");
         x_coordinate = atoi(token);
 
-        token = strtok(NULL, delim);
+        token = strtok(NULL, "(),");
         y_coordinate = atoi(token);
 
-        token = strtok(NULL, delim);
+        token = strtok(NULL, "(),");
         length = atoi(token);
 
-        token = strtok(NULL, delim);
+        token = strtok(NULL, "(),");
         strcpy(mark, token);
 
         if (strcmp(mark,"\n") == 0)
