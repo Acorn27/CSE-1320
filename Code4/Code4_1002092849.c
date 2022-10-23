@@ -17,7 +17,6 @@ int main()
 {   
     // declare 2D array of max size defined
     char draw_board[MAXMAPSIZE][MAXMAPSIZE] = {};
-    // delimiter 
     // draw command 'H', 'V', or 'P'
     char draw_command[2]= {};
     int x_coordinate, y_coordinate, length;
@@ -45,7 +44,7 @@ int main()
 
     // parse command letter
     char* token;
-    token = strtok(userInput, delim);
+    token = strtok(userInput, "(),");
     strcpy(draw_command, token);
     draw_command[0] = toupper(draw_command[0]);
 
@@ -92,7 +91,7 @@ int main()
         PrintMap(draw_board, map_size);
         printf("\nEnter draw command (enter Q to quit) ");
         fgets(userInput, 20, stdin);
-        token = strtok(userInput, delim);
+        token = strtok(userInput, "(),");
         strcpy(draw_command, token);
         draw_command[0] = toupper(draw_command[0]);
 
