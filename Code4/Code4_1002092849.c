@@ -18,7 +18,7 @@ int main()
     // declare 2D array of max size defined
     char draw_board[MAXMAPSIZE][MAXMAPSIZE] = {};
     // draw command 'H', 'V', or 'P'
-    char draw_command[2]= {};
+    char draw_command[5]= {};
     int x_coordinate, y_coordinate, length;
     char mark[5] = {};
 
