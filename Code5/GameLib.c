@@ -110,6 +110,9 @@ void DashIt(char *Phrase, char DashPhrase[])
 	{
 	    DashPhrase[i] = toupper(Phrase[i]);
 	}
+
+	// Null terminate DashPhrase
+	DashPhrase[strlen(Phrase)] = "\0";
 	/* Call strpbrk() with DashPhrase and Alphabet and save the result in ReplaceIt */
 	ReplaceIt = strpbrk(DashPhrase, Alphabet);
 
@@ -121,5 +124,4 @@ void DashIt(char *Phrase, char DashPhrase[])
 		/* Call strpbrk() again */
 		ReplaceIt = strpbrk(DashPhrase, Alphabet);
 	}
-	DashPhrase[strlen(DashPhrase)] = "\0";
 }
