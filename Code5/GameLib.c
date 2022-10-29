@@ -26,6 +26,7 @@ void StartGame(char ChosenPhrase[])
 		DashIt(PhraseBank[i], DashPhrase);
 
 		printf("%d.\t%s\n", i+1, DashPhrase);
+
 		i++;
 	}
 	
@@ -120,4 +121,5 @@ void DashIt(char *Phrase, char DashPhrase[])
 		/* Call strpbrk() again */
 		ReplaceIt = strpbrk(DashPhrase, Alphabet);
 	}
+	DashPhrase[strlen(DashPhrase)] = "\0";
 }
