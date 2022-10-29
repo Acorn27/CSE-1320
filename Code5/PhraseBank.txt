@@ -1,5 +1,5 @@
 /* Mai Tran 1000074079 */
 char *PhraseBank[] = {"The Last of Us","The Witcher 3: Wild Hunt", "Red Dead Redemption 2",
-                 "God of War Ragnarok", "Let's Fighting Love", "Trick-or-treating",
+                 "God of War Ragnarok", "Let's Fighting Love", "Trick_or_treating",
 				 "You Gotta Do What You Wanna Do", "Winter is Coming",
 				 "The Prince That Was Promised", "Chaos is a Ladder", ""};
