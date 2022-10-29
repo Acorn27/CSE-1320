@@ -3,12 +3,10 @@
 Author: Mai Tran
 UTA ID: 1002092849
 Coding Assignment 5
-Last Modified: 10/28/2022 
 */
 # include <stdio.h>
 # include "GameLib.h"
 
-/* Add necessary includes */
 
 int main(void)
 {

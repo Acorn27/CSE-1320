@@ -1,4 +1,6 @@
-#Your name 1000074079 Coding Assignment 4
+# Author: Mai Tran
+# ID: 1002092849
+# Coding assignment 5
 
 SRC1 = Code5_1002092849.c
 SRC2 = GameLib.c

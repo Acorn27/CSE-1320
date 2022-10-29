@@ -1,4 +1,8 @@
-/* GameLib Template */
+/* 
+Author: Mai Tran
+UTA ID: 1002092849
+Coding Assignment 5
+*/
 
 #include "GameLib.h"
 #include <string.h>
