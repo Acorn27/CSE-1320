@@ -1,6 +1,8 @@
 /* GameLib Template */
 
 #include "GameLib.h"
+#include <string.h>
+#include <stdlib.h>
 
 void StartGame(char ChosenPhrase[])
 {
