@@ -30,6 +30,7 @@ void StartGame(char ChosenPhrase[])
 		DashIt(PhraseBank[i], DashPhrase);
 
 		printf("%d.\t%s\n", i+1, DashPhrase);
+
 		i++;
 	}
 	
@@ -45,7 +46,7 @@ void StartGame(char ChosenPhrase[])
 	}
 	
 	/* copy the phrase from PhraseBank based on Choice into ChosenPhrase */
-	strcpy(ChosenPhrase, PhraseBank[Choice]);
+	strcpy(ChosenPhrase, PhraseBank[Choice-1]);
 }
 
 void CheckPhrase(char *Phrase)
@@ -54,7 +55,7 @@ void CheckPhrase(char *Phrase)
 	char *FindDash = NULL;
 	
 	/* call strchr() with Phrase and a dash and store the result in FindDash.  If that */
-	FindDash = strchr(Phrase, '_');
+	FindDash = strchr(Phrase, '-');
 	/* value is not NULL, then you found a dash                                        */
 	if (FindDash != NULL)
 	{
@@ -92,7 +93,7 @@ int GuessALetter(char Phrase[], char DashedPhrase[], char UpperPhrase[])
 		FoundALetter = 1;
 		DashedPhrase[FindGuess - UpperPhraseCopy] = Phrase[FindGuess - UpperPhraseCopy];
 		/* Dereference FindGuess and set it to a dash */
-		*FindGuess = '_';
+		*FindGuess = '-';
 
 		/* Call strchr() again */
 		FindGuess = strchr(UpperPhraseCopy, Guess);
@@ -113,6 +114,9 @@ void DashIt(char *Phrase, char DashPhrase[])
 	{
 	    DashPhrase[i] = toupper(Phrase[i]);
 	}
+
+	// Null terminate DashPhrase
+	DashPhrase[strlen(Phrase)] = '\0';
 	/* Call strpbrk() with DashPhrase and Alphabet and save the result in ReplaceIt */
 	ReplaceIt = strpbrk(DashPhrase, Alphabet);
 
@@ -120,7 +124,7 @@ void DashIt(char *Phrase, char DashPhrase[])
 	while (ReplaceIt != NULL)
 	{
 		/* Dereference ReplaceIt and set it to a dash */
-		*ReplaceIt = '_';
+		*ReplaceIt = '-';
 		/* Call strpbrk() again */
 		ReplaceIt = strpbrk(DashPhrase, Alphabet);
 	}

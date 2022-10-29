@@ -6,6 +6,8 @@ Coding Assignment 5
 */
 # include <stdio.h>
 # include "GameLib.h"
+# include <string.h>
+# include <stdlib.h>
 
 
 int main(void)
@@ -44,7 +46,7 @@ int main(void)
 		}
 	}
 	/* while (call strchr() with DashedPhrase with -) AND strike counter is less than strikes define */
-	while (strchr(DashedPhrase,'_') && Strikes < STRIKES);
+	while (strchr(DashedPhrase,'-') && Strikes < STRIKES);
 
 
 	if (Strikes < STRIKES)
