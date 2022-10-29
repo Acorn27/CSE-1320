@@ -1,8 +1,6 @@
 /* GameLib Template */
 
 #include "GameLib.h"
-#include <string.h>
-#include <stdlib.h>
 
 void StartGame(char ChosenPhrase[])
 {
@@ -112,7 +110,7 @@ void DashIt(char *Phrase, char DashPhrase[])
 	}
 
 	// Null terminate DashPhrase
-	DashPhrase[strlen(Phrase)] = "\0";
+	DashPhrase[strlen(Phrase)] = '\0';
 	/* Call strpbrk() with DashPhrase and Alphabet and save the result in ReplaceIt */
 	ReplaceIt = strpbrk(DashPhrase, Alphabet);
 
