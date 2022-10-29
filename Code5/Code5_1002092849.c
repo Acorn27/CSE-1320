@@ -7,6 +7,8 @@ Last Modified: 10/28/2022
 */
 # include <stdio.h>
 # include "GameLib.h"
+# include <string.h>
+# include <stdlib.h>
 
 /* Add necessary includes */
 
