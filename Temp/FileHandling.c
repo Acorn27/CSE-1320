@@ -19,9 +19,9 @@ int main(int argc, char *argv[])
 
     }
 
-    ReadFH = fopen(readFileName, 'r');
-    WriteFH = fopen(writeFileName, 'w');
-    ReadWriteFH = fopen(rwFileName, 'w+');
+    ReadFH = fopen(readFileName, "r");
+    WriteFH = fopen(writeFileName, "w");
+    ReadWriteFH = fopen(rwFileName, "w+");
 
     if (ReadFH == NULL || WriteFH == NULL || ReadWriteFH == NULL)
     {
