@@ -36,7 +36,7 @@ int main(int argc, char *argv[])
 
     fclose(ReadFH);
     fclose(WriteFH);
-    fclode (ReadWriteFH);
+    fclose (ReadWriteFH);
 
     return 0;
 
