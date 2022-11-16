@@ -34,6 +34,10 @@ int main(int argc, char *argv[])
         printf("All files opened\n");
     }
 
+    fclose(ReadFH);
+    fclose(WriteFH);
+    fclode (ReadWriteFH);
+
     return 0;
 
 }
