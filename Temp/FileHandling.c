@@ -32,10 +32,8 @@ int main(int argc, char *argv[])
     else
     {
         printf("All files opened\n");
-        printf("Enter a string: ");
-        fgets(buffer, sizeof(buffer)-1, stdin);
-
-        fprintf(ReadFH, "%s", buffer);
+        
+        fscanf(ReadFH, "%s", buffer);
         fprintf(WriteFH, "%s", buffer);
         fprintf(ReadWriteFH, "%s", buffer);
 
