@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <cctype>
+#include <ctype.h>
 #include "DrawTool.h"
 #include "FileLib.h"
 #include "ListLib.h"
