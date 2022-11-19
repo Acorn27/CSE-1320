@@ -60,7 +60,7 @@ void ReadFileIntoLinkedList(FILE *DCFile, NODE **LinkedListHead)
 		/* if line from file ends with \n, then replace \n with \0 */
 		if (Buffer[strlen(Buffer)-1] == '\n')
 		{
-			Buffer[strlen(Buffer)-1] == '\o';
+			Buffer[strlen(Buffer)-1] == NULL;
 		}
 		
 		/* tokenize to get the Letter and the DrawCommand */
