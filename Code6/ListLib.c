@@ -1,5 +1,6 @@
 /* ListLib-Template */
 
+#include <string.h>
 #include "ListLib.h"
 void AddDrawCommandToList(char letter, char DrawCommand[], NODE** LinkListHead)
 {
@@ -37,7 +38,7 @@ NODE *FindLetter(NODE *LinkedListHead, char Letter, char DC[])
 	tempPtr = LinkedListHead;
 
 	/* while traversing the linked list AND the Letter in the node is not the Letter passed in */
-	while (tempPtr->next_ptr != NULL && tempPtr->Letter != Letter)
+	while (tempPtr != NULL && tempPtr->Letter != Letter)
 	{
 		/* move TempPtr */
 		tempPtr = tempPtr->next_ptr;
