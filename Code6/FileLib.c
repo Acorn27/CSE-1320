@@ -49,13 +49,29 @@ FILE *OpenFile(int argc, char *argv[])
 void ReadFileIntoLinkedList(FILE *DCFile, NODE **LinkedListHead)
 {
 	/* declare various variables needed */
+	char Buffer[200] = {};
+	char *tok;
+	char letter;
+	char DrawCommand[200];
 	
 	/* while fgets() reads the file */
+	while (fgets(Buffer, sizeof(Buffer) -1 ,DCFile))
 	{
 		/* if line from file ends with \n, then replace \n with \0 */
+		if (Buffer[strlen(Buffer)-1] == '\n')
+		{
+			Buffer[strlen(Buffer)-1] == '\o';
+		}
 		
 		/* tokenize to get the Letter and the DrawCommand */
+		tok = strtok(Buffer, "|");
+		strcpy(DrawCommand, tok);
+		letter = DrawCommand[0];
+		tok = strtok(NULL, '|');
+		strcpy(DrawCommand, tok);
+
 	
 		/* Call AddDrawCommandToList with correct parameters */
+		AddDrawCommandToList(letter, DrawCommand, LinkedListHead);
 	}
 }
