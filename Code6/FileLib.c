@@ -18,7 +18,6 @@ FILE *OpenFile(int argc, char *argv[])
 	else 
 	{
 		printf("Must run with an input file name.\n");
-		printf("Enter a file name at the prompt ");
 	}
 
 	do
@@ -37,6 +36,7 @@ FILE *OpenFile(int argc, char *argv[])
 			scanf("%s", FileName);
 
 			/* open the file "r" mode */
+			// abundant?
 			MyFile = fopen(FileName, "r");
 		}
 	}
@@ -55,7 +55,7 @@ void ReadFileIntoLinkedList(FILE *DCFile, NODE **LinkedListHead)
 	char DrawCommand[200];
 	
 	/* while fgets() reads the file */
-	while (fgets(Buffer, sizeof(Buffer) -1 ,DCFile))
+	while (fgets(Buffer, sizeof(Buffer) -1, DCFile))
 	{
 		/* if line from file ends with \n, then replace \n with \0 */
 		if (Buffer[strlen(Buffer)-1] == '\n')

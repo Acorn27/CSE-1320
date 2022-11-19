@@ -9,12 +9,15 @@ int main(int argc, char *argv[])
 
     // Linked list head
     NODE *LinkListHead;
+    LinkListHead = NULL;
+
     char map[MAXMAPSIZE][MAXMAPSIZE] = {};
     char Buffer[5] = {};
     char DC[100] = {};
     NODE *TempPtr;
     char draw_command[5]= {};
     int x_coordinate, y_coordinate, length;
+    char mark[5] = {};
 
     // call OpenFIle() in main()
     FILE *MyFile;
@@ -49,20 +52,35 @@ int main(int argc, char *argv[])
             token = strtok(DC, "(),");
             strcpy(draw_command, token);
             draw_command[0] = toupper(draw_command[0]);
+
+            // x starting coordinate
             token = strtok(NULL, "(),");
             x_coordinate = atoi(token);
+
+            // y starting coordinate
             token = strtok(NULL, "(),");
             y_coordinate = atoi(token);
+
+            // draw distance
             token = strtok(NULL, "(),");
             length = atoi(token);
 
+            // fill character
+            token = strtok(NULL, "(),");
+            strcpy(mark, token);
+            // strcmp \0 or \n ???
+            if (strcmp(mark,"\0") == 0)
+            {
+                strcpy(mark,"X");
+            }
+
             if (draw_command[0] == 'P')
             {
-                map[x_coordinate][y_coordinate] = Buffer[i];
+                map[x_coordinate][y_coordinate] = mark;
             }
             else if (draw_command[0] == 'H' || draw_command[0] == 'V')
             {
-                DrawLine(map, x_coordinate, y_coordinate, draw_command[0], length, Buffer[i]);
+                DrawLine(map, x_coordinate, y_coordinate, draw_command[0], length, mark);
             }
             else
             {
@@ -71,7 +89,7 @@ int main(int argc, char *argv[])
 
             // Look for the next node containing the letter
             // draw command will be NULL if not found
-            TempPtr = FindLetter(LinkListHead, Buffer[i], DC);
+            TempPtr = FindLetter(TempPtr, Buffer[i], DC);
         }
     }
 
