@@ -44,7 +44,7 @@ int main(int argc, char *argv[])
         // Either check the strlen() of draw command (0 means it was set to NULL)
         // or check if element [0] of draw command is '\0'
         // You want to continue to loop while your draw command has something in it
-        while (DC[0] != NULL)
+        while (DC[0] != '\0')
         {
             //tokenize and draw the command
             // parse command letter
@@ -76,11 +76,11 @@ int main(int argc, char *argv[])
 
             if (draw_command[0] == 'P')
             {
-                map[x_coordinate][y_coordinate] = mark;
+                map[x_coordinate][y_coordinate] = mark[0];
             }
             else if (draw_command[0] == 'H' || draw_command[0] == 'V')
             {
-                DrawLine(map, x_coordinate, y_coordinate, draw_command[0], length, mark);
+                DrawLine(map, x_coordinate, y_coordinate, draw_command[0], length, mark[0]);
             }
             else
             {
