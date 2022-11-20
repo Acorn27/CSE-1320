@@ -39,6 +39,13 @@ int main(int argc, char *argv[])
     printf("Please enter 1-3 letters ");
     scanf("%s", Buffer);
 
+    while (strlen(Buffer) > 4)
+    {
+        printf("Invalid input!\n");
+        printf("Please enter 1-3 letters ");
+        scanf("%s", Buffer);
+    }
+
     //for loop over strlen of numbers of letters entered
     for (int i = 0; i < strlen(Buffer)-1; i++)
     {
@@ -83,11 +90,11 @@ int main(int argc, char *argv[])
 
             if (draw_command[0] == 'P')
             {
-                map[x_coordinate][y_coordinate] = mark[0];
+                map[x_coordinate][y_coordinate + 7*i] = mark[0];
             }
             else if (draw_command[0] == 'H' || draw_command[0] == 'V')
             {
-                DrawLine(map, x_coordinate, y_coordinate, draw_command[0], length, mark[0]);
+                DrawLine(map, x_coordinate, y_coordinate + 7*i, draw_command[0], length, mark[0]);
             }
             else
             {
