@@ -1,4 +1,6 @@
-# Mai Tran 1002092849 Coding Assignment 6
+# Mai Tran 
+# 1002092849
+# UTA Coding Assignment 6
 
 SRC1 = Code6_1002092849.c
 SRC2 = DrawTool.c

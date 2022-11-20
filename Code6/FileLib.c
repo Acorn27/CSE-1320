@@ -1,4 +1,8 @@
-// FileLib Template
+/*
+Author: Mai Tran
+UTA ID: 1002092849
+CSE-1320-Coding asignment 6 
+*/
 
 #include <stdio.h>
 #include <string.h>
