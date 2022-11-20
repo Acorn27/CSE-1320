@@ -9,8 +9,8 @@ SRC4 = FileLib.c
 
 OBJ1 = $(SRC1:.c=.o)
 OBJ2 = $(SRC2:.c=.o)
-OBJ3 = $(SRC2:.c=.o)
-OBJ4 = $(SRC2:.c=.o)
+OBJ3 = $(SRC3:.c=.o)
+OBJ4 = $(SRC4:.c=.o)
 
 EXE = $(SRC1:.c=.e)
 
