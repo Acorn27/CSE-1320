@@ -17,7 +17,14 @@ FILE *OpenFile(int argc, char *argv[])
 	/* if argc is 2, then use argv[1] as the input file name, else print the message seen in sample output */
 	if (argc == 2)
 	{
-		strcpy(FileName, argv[1]);
+		if (!strncmp(argv[1], "FILENAME=", strlen("FILENAME=")))
+		{
+			strcpy(FileName, strchr(argv[1], '=') + 1);
+		}
+		else
+		{
+			strcpy(FileName, argv[1]);	
+		}
 	}
 	else 
 	{
