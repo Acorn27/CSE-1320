@@ -47,7 +47,7 @@ int main(int argc, char *argv[])
     }
 
     //for loop over strlen of numbers of letters entered
-    for (int i = 0; i < strlen(Buffer)-1; i++)
+    for (int i = 0; i < strlen(Buffer); i++)
     {
         //uppercase the current letter
         Buffer[i] = toupper(Buffer[i]);
