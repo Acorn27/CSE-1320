@@ -22,6 +22,9 @@ FILE *OpenFile(int argc, char *argv[])
 	else 
 	{
 		printf("Must run with an input file name.\n");
+		/* read in new filename */
+		printf("Enter a file name at the prompt ");
+		scanf("%s", FileName);
 	}
 
 	do
@@ -40,7 +43,6 @@ FILE *OpenFile(int argc, char *argv[])
 			scanf("%s", FileName);
 
 			/* open the file "r" mode */
-			// abundant?
 			MyFile = fopen(FileName, "r");
 		}
 	}
