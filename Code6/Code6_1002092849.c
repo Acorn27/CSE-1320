@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
     printf("Please enter 1-3 letters ");
     scanf("%s", Buffer);
 
-    while (strlen(Buffer) > 4)
+    while (strlen(Buffer) > 3)
     {
         printf("Invalid input!\n");
         printf("Please enter 1-3 letters ");
