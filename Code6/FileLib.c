@@ -72,7 +72,7 @@ void ReadFileIntoLinkedList(FILE *DCFile, NODE **LinkedListHead)
 		strcpy(DrawCommand, tok);
 		letter = DrawCommand[0];
 		
-		tok = strtok(NULL, '|');
+		tok = strtok(NULL, "|");
 		strcpy(DrawCommand, tok);
 
 	
