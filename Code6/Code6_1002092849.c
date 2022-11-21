@@ -8,8 +8,8 @@ CSE-1320-Coding asignment 6
 #include <stdlib.h>
 #include <ctype.h>
 #include "DrawTool.h"
-#include "ListLib.h"
 #include "FileLib.h"
+#include "ListLib.h"
 
 int main(int argc, char *argv[])
 {   
