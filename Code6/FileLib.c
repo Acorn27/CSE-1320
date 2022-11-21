@@ -7,6 +7,7 @@ CSE-1320-Coding asignment 6
 #include <stdio.h>
 #include <string.h>
 #include "ListLib.h"
+#include "FileLib.h"
 
 FILE *OpenFile(int argc, char *argv[])
 {	

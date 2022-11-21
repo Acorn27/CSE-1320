@@ -20,7 +20,7 @@ BNODE;
 // Fourth parameter - FileName containing seat map (XXXOOOO)
 // Fifth parameter - Dimensions of theater
 void AddBSTNode(BNODE **, char [], char [], char [], char []);
-
+ 
 // First parameter - BST node
 // Prints the theater name and zip code
 void InOrder(BNODE *);
