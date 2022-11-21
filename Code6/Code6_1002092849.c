@@ -107,5 +107,7 @@ int main(int argc, char *argv[])
         }
     }
 
+    PrintMap(map);
+
     return 0;    
 }
