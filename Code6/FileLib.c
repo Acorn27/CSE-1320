@@ -44,7 +44,7 @@ FILE *OpenFile(int argc, char *argv[])
 		if (MyFile == NULL)
 		{
 			/* print message seen in sample output */
-			printf("Could not open input file named %s\n", FileName);
+			printf("Could not open input file named %s.\n", FileName);
 
 			/* read in new filename */
 			printf("Enter a file name at the prompt ");
