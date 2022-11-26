@@ -12,7 +12,7 @@
 void PrintReceipts(SNODE **StackTop)
 {
 	/* 
-	   if the StackTop is empty, the print appropriate message - see example output - 
+	   if the StackTop is empty, the print appropriate message - see example output -
 	   else print out the receipts.  A receipt is one node of the stack and each receipt
 	   consists of a receipt number, a movie theater name and a TicketList (a linked list
 	   of all seats sold to one customer).  Use ReturnAndFreeLinkedListNode() to traverse 
@@ -20,6 +20,27 @@ void PrintReceipts(SNODE **StackTop)
 	   linked list nodes. Each call to ReturnAndFreeLinkedListNode() brings back ONE ticket 
 	   from the linked list in the Ticket variable.  Call pop() to remove the stack node.
 	*/
+	if (StackTop == NULL)
+	{
+		printf("No Receipts\n");
+	}
+	else
+	{	
+		printf("Today's receipts\n\n\n");
+
+		while (*StackTop != NULL)
+		{	
+			char ticket[5] = {};
+			printf("Receipt #%d\n\n", (*StackTop)->ReceiptNumber);
+			printf("\t%s\n\n", (*StackTop)->MovieTheaterName);
+
+			while ((*StackTop)->TicketList != NULL)
+			{
+				ReturnAndFreeLinkedListNode((*StackTop)->TicketList, ticket);
+				printf("\t%s", ticket);
+			}
+		}
+	}
 }
 
 BNODE *PickAndDisplayTheater(BNODE *BSTRoot, char MovieTheaterMap[][MAXCOLS], int *MapRow, int *MapCol)
