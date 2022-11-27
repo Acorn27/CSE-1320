@@ -37,8 +37,8 @@ $(OBJ3) : $(SRC3)
 $(OBJ4) : $(SRC4)
 	gcc -c $(CFLAGS) $(SRC4)
 
-$(OBJ4) : $(SRC5)
+$(OBJ5) : $(SRC5)
 	gcc -c $(CFLAGS) $(SRC5)
 
-$(OBJ4) : $(SRC6)
+$(OBJ6) : $(SRC6)
 	gcc -c $(CFLAGS) $(SRC6)
