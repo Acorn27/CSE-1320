@@ -26,12 +26,12 @@ void PrintReceipts(SNODE **StackTop)
 	}
 	else
 	{	
-		printf("Today's receipts\n\n\n");
+		printf("\n\nToday's receipts\n\n\n");
 
 		while (*StackTop != NULL)
 		{	
 			char ticket[5] = {};
-			printf("Receipt #%d\n\n", (*StackTop)->ReceiptNumber);
+			printf("\n\nReceipt #%d\n\n", (*StackTop)->ReceiptNumber);
 			printf("\t%s\n\n", (*StackTop)->MovieTheaterName);
 
 			while ((*StackTop)->TicketList != NULL)
@@ -250,7 +250,7 @@ int main(int argc, char *argv[])
 							Row = toupper(Row);
 							ArrayRow = (int)Row - 65;
 							ArrayCol = SeatNumber - 1;
-							printf("Row %d Col %d \n", ArrayRow, ArrayCol);
+							//printf("Row %d Col %d \n", ArrayRow, ArrayCol);
 						
 							if ((ArrayRow < 0 || ArrayRow >= MapRow) ||
 								(ArrayCol < 0 || ArrayCol >= MapCol))
