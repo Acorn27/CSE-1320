@@ -36,7 +36,7 @@ void PrintReceipts(SNODE **StackTop)
 
 			while ((*StackTop)->TicketList != NULL)
 			{
-				ReturnAndFreeLinkedListNode((*StackTop)->TicketList, ticket);
+				ReturnAndFreeLinkedListNode(&((*StackTop)->TicketList), ticket);
 				printf("\t%s", ticket);
 			}
 			
@@ -134,7 +134,7 @@ void ReadFileIntoBST(FILE *BSTFile, BNODE **BSTnode)
 		tok = strtok(NULL, "|");
 		strcpy(DIM,tok);
 
-		AddBSTNode(&BSTFile, MTN, ZC, FN, DIM);
+		AddBSTNode(BSTnode, MTN, ZC, FN, DIM);
 	}
 }
 
