@@ -106,6 +106,11 @@ void ReadFileIntoQueue(FILE *QueueFile, QNODE **QH, QNODE **QT)
 	char CustomerName[20] = {};
 	while (fgets(CustomerName, sizeof(CustomerName)-1, QueueFile))
 	{
+		// remove new line
+		if (CustomerName[strlen(CustomerName)-1] == '\n')
+		{
+			CustomerName[strlen(CustomerName)-1] = '\0';
+		}
 		enQueue(CustomerName, QH, QT);
 	}
 }
