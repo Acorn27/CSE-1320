@@ -58,7 +58,7 @@ BNODE *PickAndDisplayTheater(BNODE *BSTRoot, char MovieTheaterMap[][MAXCOLS], in
 	InOrder(BSTRoot);
 	
 	// Prompt for a zip
-	printf("Enter zip ");
+	printf("\nEnter zip ");
 	scanf("%s", zip);
 
 	// Call SearchForBNODE()
