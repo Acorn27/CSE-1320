@@ -14,7 +14,7 @@ OBJ2 = $(SRC2:.c=.o)
 OBJ3 = $(SRC3:.c=.o)
 OBJ4 = $(SRC4:.c=.o)
 OBJ5 = $(SRC5:.c=.o)
-OBJ6 = $(SR6:.c=.o)
+OBJ6 = $(SRC6:.c=.o)
 
 EXE = $(SRC1:.c=.e)
 
