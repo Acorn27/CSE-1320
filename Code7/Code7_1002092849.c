@@ -251,6 +251,7 @@ int main(int argc, char *argv[])
 							Row = toupper(Row);
 							ArrayRow = (int)Row - 65;
 							ArrayCol = SeatNumber - 1;
+							printf("Row %d Col %d \n", ArrayRow, ArrayCol);
 						
 							if ((ArrayRow < 0 || ArrayRow >= MapRow) ||
 								(ArrayCol < 0 || ArrayCol >= MapCol))
