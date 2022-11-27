@@ -92,7 +92,7 @@ BNODE *PickAndDisplayTheater(BNODE *BSTRoot, char MovieTheaterMap[][MAXCOLS], in
 		}
 		else
 		{
-			PrintSeatMap(MovieTheaterMap, row, col)
+			PrintSeatMap(MovieTheaterMap, row, col);
 		}
 	}
 
