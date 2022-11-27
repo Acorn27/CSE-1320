@@ -31,7 +31,7 @@ void PrintReceipts(SNODE **StackTop)
 		while (*StackTop != NULL)
 		{	
 			char ticket[5] = {};
-			printf("\n\nReceipt #%d\n\n", (*StackTop)->ReceiptNumber);
+			printf("\nReceipt #%d\n\n", (*StackTop)->ReceiptNumber);
 			printf("\t%s\n\n", (*StackTop)->MovieTheaterName);
 
 			while ((*StackTop)->TicketList != NULL)
@@ -39,6 +39,8 @@ void PrintReceipts(SNODE **StackTop)
 				ReturnAndFreeLinkedListNode(&((*StackTop)->TicketList), ticket);
 				printf("\t%s", ticket);
 			}
+			
+			printf("\n");
 			
 			pop(StackTop);
 
