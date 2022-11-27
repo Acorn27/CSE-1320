@@ -103,7 +103,7 @@ BNODE *PickAndDisplayTheater(BNODE *BSTRoot, char MovieTheaterMap[][MAXCOLS], in
 void ReadFileIntoQueue(FILE *QueueFile, QNODE **QH, QNODE **QT)
 {
 	//	read the passed in file and calls enQueue for each name in the file
-	char CustomerName[20] = {};
+	char CustomerName[30] = {};
 	while (fgets(CustomerName, sizeof(CustomerName)-1, QueueFile))
 	{
 		// remove new line
