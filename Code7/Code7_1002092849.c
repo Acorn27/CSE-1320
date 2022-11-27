@@ -75,24 +75,23 @@ BNODE *PickAndDisplayTheater(BNODE *BSTRoot, char MovieTheaterMap[][MAXCOLS], in
 	else
 	{
 		char *tok;
-		int row, col;
 
 		strcpy(MyDims, MyTheater->Dimensions);
 		tok = strtok(MyDims, "x");
-		row = atoi(tok);
+		*MapRow = atoi(tok);
 		tok = strtok(NULL, "x");
-		col = atoi(tok);
+		*MapCol = atoi(tok);
 
 		// If ReadMovieTheaterFile() returns FALSE, then print
 		// "Unable to print that seat map at this time.  Check back later."
 		// else call PrintSeatMap()	
-		if (!ReadMovieTheaterFile(MovieTheaterMap, MyTheater->FileName, row, col))
+		if (!ReadMovieTheaterFile(MovieTheaterMap, MyTheater->FileName, *MapRow, *MapCol))
 		{
 			printf("Unable to print that seat map at this time. Check back later.\n\n");
 		}
 		else
 		{
-			PrintSeatMap(MovieTheaterMap, row, col);
+			PrintSeatMap(MovieTheaterMap, *MapRow, *MapCol);
 		}
 	}
 
