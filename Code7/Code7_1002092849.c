@@ -20,7 +20,7 @@ void PrintReceipts(SNODE **StackTop)
 	   linked list nodes. Each call to ReturnAndFreeLinkedListNode() brings back ONE ticket 
 	   from the linked list in the Ticket variable.  Call pop() to remove the stack node.
 	*/
-	if (StackTop == NULL)
+	if (*StackTop == NULL)
 	{
 		printf("No Receipts\n");
 	}
@@ -39,6 +39,9 @@ void PrintReceipts(SNODE **StackTop)
 				ReturnAndFreeLinkedListNode((*StackTop)->TicketList, ticket);
 				printf("\t%s", ticket);
 			}
+			
+			pop(StackTop);
+
 		}
 	}
 }
@@ -51,33 +54,88 @@ BNODE *PickAndDisplayTheater(BNODE *BSTRoot, char MovieTheaterMap[][MAXCOLS], in
 	
 	printf("\n\nPick a theater by entering the zipcode\n\n");
 				
-	// Traverse the BST in order and print out the theaters in zip code order - use InOrder()			
+	// Traverse the BST in order and print out the theaters in zip code order - use InOrder()
+	InOrder(BSTRoot);
 	
 	// Prompt for a zip
+	printf("Enter zip ");
+	scanf("%s", zip);
 
 	// Call SearchForBNODE()
+	MyTheater = SearchForBNODE(BSTRoot, zip);
 
 	// If theater is not found, then print message
-	
+	if (MyTheater == NULL)
+	{
+		printf("Theater is not found\n");
+	}
 	// If theater is found, then tokenize the theater's dimensions and
 	// pass those dimensions and the MovieTheaterMap and the theater's filename
 	// to ReadMovieTheaterFile()
+	else
+	{
+		char *tok;
+		int row, col;
 
-	// If ReadMovieTheaterFile() returns FALSE, then print
-	// "Unable to print that seat map at this time.  Check back later."
-	// else call PrintSeatMap()
+		strcpy(MyDims, MyTheater->Dimensions);
+		tok = strtok(MyDims, "x");
+		row = atoi(tok);
+		tok = strtok(NULL, "x");
+		col = atoi(tok);
+
+		// If ReadMovieTheaterFile() returns FALSE, then print
+		// "Unable to print that seat map at this time.  Check back later."
+		// else call PrintSeatMap()	
+		if (!ReadMovieTheaterFile(MovieTheaterMap, MyTheater->FileName, row, col))
+		{
+			printf("Unable to print that seat map at this time. Check back later.\n\n");
+		}
+		else
+		{
+			PrintSeatMap(MovieTheaterMap, row, col)
+		}
+	}
 
 	// return the found theater
+	return MyTheater;
 }	
 
 void ReadFileIntoQueue(FILE *QueueFile, QNODE **QH, QNODE **QT)
 {
 	//	read the passed in file and calls enQueue for each name in the file
+	char CustomerName[20] = {};
+	while (fgets(CustomerName, sizeof(CustomerName)-1, QueueFile))
+	{
+		enQueue(CustomerName, QH, QT);
+	}
 }
 
 void ReadFileIntoBST(FILE *BSTFile, BNODE **BSTnode)
 {
 	//	read the passed in file and tokenize each line and pass the information to AddBSTNode
+	char line[100] = {}; 
+	char MTN[50] = {};
+	char ZC[10] = {};
+	char FN[15] = {};
+	char DIM[10] = {};
+	char *tok;
+
+	while (fgets(line, sizeof(line)-1, BSTFile))
+	{
+		tok = strtok(line, "|");
+		strcpy(MTN,tok);
+
+		tok = strtok(NULL, "|");
+		strcpy(ZC,tok);
+
+		tok = strtok(NULL, "|");
+		strcpy(FN,tok);
+
+		tok = strtok(NULL, "|");
+		strcpy(DIM,tok);
+
+		AddBSTNode(&BSTFile, MTN, ZC, FN, DIM);
+	}
 }
 
 void get_command_line_parameter(char *argv[], char ParamName[], char ParamValue[])
@@ -149,8 +207,19 @@ int main(int argc, char *argv[])
 	ReceiptNumber = atoi(arg_value);
 		
 	/* call function to open queuefilename - if it does not open, print message and exit */	
+	queueFile = fopen(queuefilename, "r");
+	if (queueFile == NULL)
+	{
+		printf("Can't open %s\n", queuefilename);
+		exit(0);
+	}
 
 	/* calll function to open zipfilename - if it does not open, print message and exit */
+	zipFile = fopen(zipfilename, "r");
+	if (zipfilename == NULL)
+	{
+		printf("Can't open %s\n", zipfilename);
+	}
 
 	ReadFileIntoQueue(queueFile, &QueueHead, &QueueTail);
 	ReadFileIntoBST(zipFile, &BSTRoot);
