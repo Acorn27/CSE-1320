@@ -22,7 +22,7 @@ void PrintReceipts(SNODE **StackTop)
 	*/
 	if (*StackTop == NULL)
 	{
-		printf("No Receipts\n");
+		printf("\nNo Receipts\n");
 	}
 	else
 	{	
