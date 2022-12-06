@@ -1,8 +1,11 @@
+/*
+Author: Mai Tran
+UTA ID: 1002092849
+*/
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
 #include <ctype.h>
-
 #include "MovieTheaterLib.h"
 #include "QueueLib.h"
 #include "BSTLib.h"
