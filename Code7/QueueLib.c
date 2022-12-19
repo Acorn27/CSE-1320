@@ -65,6 +65,8 @@ void Reverve(QNODE **Head)
 		prev_node = current_node;
 		current_node = next_node;
 	}
+	
+	// function stop after current_node equal NULL, prev_node is the address of the last_node
 	*Head = prev_node;
 }
 
