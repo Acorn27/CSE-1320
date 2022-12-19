@@ -52,11 +52,11 @@ void DisplayQueue(QNODE *QueueHead)
 } 
 
 // reverse oder of linked list
-void Reverve(QNODE *Head)
+void Reverve(QNODE **Head)
 {
 	QNODE *prev_node = NULL;
-	QNODE *current_node = Head;
-	QNODE *next_node = Head->next_ptr;
+	QNODE *current_node = *Head;
+	QNODE *next_node = NULL;
 
 	while (current_node != NULL)
 	{
@@ -65,5 +65,6 @@ void Reverve(QNODE *Head)
 		prev_node = current_node;
 		current_node = next_node;
 	}
+	*Head = prev_node;
 }
 

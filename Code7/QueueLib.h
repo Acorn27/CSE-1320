@@ -23,6 +23,6 @@ void deQueue(QNODE **);
 void DisplayQueue(QNODE *);
 
 // Reverse order of pointer in Queue
-void Reverve(QNODE *);
+void Reverve(QNODE **);
 
 #endif
