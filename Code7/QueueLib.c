@@ -58,6 +58,7 @@ void Reverve(QNODE **Head)
 	QNODE *current_node = *Head;
 	QNODE *next_node = NULL;
 
+	// run time O(n)
 	while (current_node != NULL)
 	{
 		next_node = current_node->next_ptr;
