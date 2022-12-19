@@ -22,4 +22,7 @@ void deQueue(QNODE **);
 // Prints Name from the queue
 void DisplayQueue(QNODE *);
 
+// Reverse order of pointer in Queue
+void Reverve(QNODE *);
+
 #endif

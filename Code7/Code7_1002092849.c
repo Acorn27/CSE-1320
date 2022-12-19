@@ -228,6 +228,7 @@ int main(int argc, char *argv[])
 	}
 
 	ReadFileIntoQueue(queueFile, &QueueHead, &QueueTail);
+	Reverve(QueueHead);
 	ReadFileIntoBST(zipFile, &BSTRoot);
 	
 	while (QueueHead != NULL)
